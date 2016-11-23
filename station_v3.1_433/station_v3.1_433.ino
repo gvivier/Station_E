@@ -27,7 +27,7 @@ struct Donnees {
   int Vit_maxi;
 };
 
-Donnees mesdonnees;
+struct Donnees mesdonnees;
 uint8_t rcvdSize = sizeof(mesdonnees);
 char Message[VW_MAX_MESSAGE_LEN];
 
@@ -224,7 +224,7 @@ void loop() {
   }
   
   digitalWrite(Led_Emission,HIGH);
-  vw_send((uint8_t *) &mesdonnees, rcvdSize);
+  vw_send((uint8_t *) &mesdonnees, sizeof(rcvdSize));
 //  Serial.println(mesdonnees);
   vw_wait_tx();
   delay(2000);

@@ -30,7 +30,7 @@ struct Donnees {
   int Vit_maxi;
 };
 
-Donnees mesdonnees;
+struct Donnees mesdonnees;
 uint8_t rcvdSize = sizeof(mesdonnees);
 
 const int Led_Erreur = 2;
@@ -147,6 +147,7 @@ void loop(void)
 
       client.print(F("?Temperature="));
       client.print(mesdonnees.Temp);
+      //Serial.println(mesdonnees.Temp,BIN);
       client.print(F("&Pression="));
       client.print(mesdonnees.Pression); 
       client.print(F("&Pluie="));
